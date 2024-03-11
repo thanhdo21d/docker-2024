@@ -99,3 +99,34 @@ ping new_nginx2
 ping new_nginx1
 và nếu ping đến network-alias thì nó sẽ trả ra ngẫu nhiên 1 container (mục đích cân bằng tải || load banance)
 ping webserver1
+
+<!-- image  -->
+
+docker image ls
+docker image ls -a
+
+-- khi container được tạo từ image image
+-> image image- read only
+-container ---> read read- write
+khi run container từ image , ta có thể sửa chèn vào container nhưng image không bị ảnh hưởng và ko thay đổi
+
+-- kiểm tra history image xem có thành phần gì
+docker image inspect <name>
+docker image history<name>
+
+-- quản lý image
+quản lý image theo tag (tức là phiên bản của image đó , giống như docker container run --name nginx_new --public 8080:80 -d nginx:1.20.1)
+public - private
+
+- docker hub free thì chỉ được 1 repo private , còn lại là public , nếu muốn nhiều hơn thì phải dùng bản trả phí
+
+docker push new-repo:tagname
+
+-- tag
+docker image tag <name_image> <tag_name>
+docker image tag nginx new_nginx_tag
+
+docker login
+-- push
+docker image push <name_tag>
+docker image push new_nginx_tag
